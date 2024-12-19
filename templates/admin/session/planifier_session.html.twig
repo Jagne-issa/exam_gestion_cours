@@ -1,0 +1,16 @@
+{# templates/admin/session/planifier_session.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Planifier une Session de Cours{% endblock %}
+
+{% block body %}
+    <h1>Planifier une Session pour le Cours "{{ cours.nom }}"</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.dateHeureDebut) }}
+        {{ form_row(form.dateHeureFin) }}
+        {{ form_row(form.salle) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+    <a href="{{ path('admin_cours_sessions', {'id': cours.id}) }}" class="btn btn-secondary mt-3">Retour aux Sessions</a>
+{% endblock %}

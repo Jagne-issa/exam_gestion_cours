@@ -1,0 +1,31 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+admin_cours:
+    path: /admin/cours
+    controller: App\Controller\Admin\CoursController::index
+
+admin_cours_new:
+    path: /admin/cours/new
+    controller: App\Controller\Admin\CoursController::new
+
+admin_cours_show:
+    path: /admin/cours/{id}
+    controller: App\Controller\Admin\CoursController::show
+
+admin_cours_edit:
+    path: /admin/cours/{id}/edit
+    controller: App\Controller\Admin\CoursController::edit
+
+admin_cours_delete:
+    path: /admin/cours/{id}/delete
+    controller: App\Controller\Admin\CoursController::delete
+
+admin_session_sessions:
+    path: /admin/cours/{id}/sessions
+    controller: App\Controller\Admin\SessionController::sessions
+
+admin_session_planifier:
+    path: /admin/cours/{id}/session/planifier
+    controller: App\Controller\Admin\SessionController::planifier

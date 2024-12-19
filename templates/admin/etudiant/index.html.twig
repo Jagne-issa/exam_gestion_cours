@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Étudiants{% endblock %}
+
+{% block body %}
+<h1>Liste des Étudiants</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Classe</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for etudiant in etudiants %}
+        <tr>
+            <td>{{ etudiant.nom }}</td>
+            <td>{{ etudiant.prenom }}</td>
+            <td>{{ etudiant.classe.nom }}</td>
+            <td>
+                <a href="{{ path('admin_etudiant_edit', {'id': etudiant.id}) }}">Modifier</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ path('admin_etudiant_new') }}">Ajouter un nouvel étudiant</a>
+{% endblock %}

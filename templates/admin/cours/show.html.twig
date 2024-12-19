@@ -1,0 +1,32 @@
+{# templates/admin/cours/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Cours{% endblock %}
+
+{% block body %}
+    <h1>Détails du Cours</h1>
+    <table class="table mt-4">
+        <tr>
+            <th>Nom du Cours</th>
+            <td>{{ cours.nom }}</td>
+        </tr>
+        <tr>
+            <th>Professeur</th>
+            <td>{{ cours.professeur.name }}</td>
+        </tr>
+        <tr>
+            <th>Classes</th>
+            <td>
+                {% for classe in cours.classes %}
+                    {{ classe.nom }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Module</th>
+            <td>{{ cours.module.nom }}</td>
+        </tr>
+    </table>
+    <a href="{{ path('admin_cours') }}" class="btn btn-secondary">Retour à la Liste des Cours</a>
+{% endblock %}

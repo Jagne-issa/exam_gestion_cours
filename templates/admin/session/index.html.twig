@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sessions{% endblock %}
+
+{% block body %}
+<h1>Liste des Sessions</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Cours</th>
+            <th>Date</th>
+            <th>Heure de début</th>
+            <th>Heure de fin</th>
+            <th>Salle</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for session in sessions %}
+        <tr>
+            <td>{{ session.cours.nom }}</td>
+            <td>{{ session.date|date('Y-m-d') }}</td>
+            <td>{{ session.heureDebut|date('H:i') }}</td>
+            <td>{{ session.heureFin|date('H:i') }}</td>
+            <td>{{ session.salle ? session.salle : 'En ligne' }}</td>
+            <td>
+                <a href="{{ path('admin_session_edit', {'id': session.id}) }}">Modifier</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ path('admin_session_new') }}">Créer une nouvelle session</a>
+{% endblock %}
